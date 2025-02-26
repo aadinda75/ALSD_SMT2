@@ -1,29 +1,39 @@
-class Mahasiswa03 {
-
+public class Mahasiswa03 {
     String nama;
     String nim;
     String kelas;
     double ipk;
 
-    void tampilkanInformasi () {
+    public Mahasiswa03() {
+    }
+
+    public Mahasiswa03(String nm, String nim, double ipk, String kls) { 
+        this.nama = nm; 
+        this.nim = nim;
+        this.ipk = ipk; 
+        this.kelas = kls;
+    }
+
+    public void tampilkanInformasi() {
         System.out.println("Nama  : " + nama);
         System.out.println("NIM   : " + nim);
         System.out.println("IPK   : " + ipk);
         System.out.println("Kelas : " + kelas);
     }
 
-    void ubahKelas (String kelasBaru) {
-        kelas = kelasBaru;
+    public void ubahKelas(String kelasBaru) {
+        this.kelas = kelasBaru;
     }
-    void updateIPK(double ipkBaru) {
+
+    public void updateIPK(double ipkBaru) { 
         if (ipkBaru < 0.0 || ipkBaru > 4.0) {
             System.out.println("IPK tidak valid. Harus antara 0.0 dan 4.0");
-            return; 
+        } else {
+            this.ipk = ipkBaru;
         }
-            ipk = ipkBaru; 
-        }
+    }
 
-    String nilaiKinerja () {
+    public String nilaiKinerja() {
         if (ipk >= 3.5) {
             return "Kinerja Sangat Baik";
         } else if (ipk >= 3.0) {
@@ -31,8 +41,7 @@ class Mahasiswa03 {
         } else if (ipk >= 2.0) {
             return "Kinerja Cukup";
         } else {
-                return "Kinerja Kurang";
+            return "Kinerja Kurang";
         }
-
-        }
+    }
 }
